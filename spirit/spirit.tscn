@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://ivqh06c7p625"]
+
+[ext_resource type="Script" path="res://spirit/spirit.gd" id="1_mthxu"]
+[ext_resource type="Texture2D" uid="uid://ejskup5qvo3l" path="res://assets/arena_fall.png" id="2_xdtq5"]
+[ext_resource type="Texture2D" uid="uid://b5b0yu56cg3da" path="res://assets/spirit/spirit_moss-dragon.png" id="3_evj0j"]
+
+[node name="Spirit" type="Node2D"]
+scale = Vector2(1.333, 1.333)
+script = ExtResource("1_mthxu")
+
+[node name="SpiritBG" type="ColorRect" parent="."]
+offset_right = 960.0
+offset_bottom = 1080.0
+color = Color(0.586415, 0.306854, 0.240249, 1)
+
+[node name="SpiritArena" type="Sprite2D" parent="."]
+position = Vector2(480, 440)
+scale = Vector2(0.993789, 0.997583)
+texture = ExtResource("2_xdtq5")
+
+[node name="SpiritSprite" type="Sprite2D" parent="."]
+position = Vector2(480, 440)
+scale = Vector2(0.397863, 0.399382)
+texture = ExtResource("3_evj0j")
+flip_h = true
+
+[node name="AbilityBorderBG" type="ColorRect" parent="."]
+offset_top = 848.0
+offset_right = 960.0
+offset_bottom = 1024.0
+color = Color(0.560955, 0.560955, 0.560955, 1)
+
+[node name="AbilityBG" type="ColorRect" parent="."]
+offset_top = 856.0
+offset_right = 960.0
+offset_bottom = 1016.0
+color = Color(0.162066, 0.162066, 0.162066, 1)
+
+[node name="AbilityHBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 856.0
+offset_right = 960.0
+offset_bottom = 1016.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="AbilityBG2" type="ColorRect" parent="."]
+offset_top = 1024.0
+offset_right = 960.0
+offset_bottom = 1080.0
+color = Color(0, 0.304178, 0.121401, 1)
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = 1024.0
+offset_right = 960.0
+offset_bottom = 1080.0
+grow_vertical = 0
+value = 100.0
+fill_mode = 3

@@ -1,0 +1,90 @@
+[gd_scene load_steps=4 format=3 uid="uid://8g8mpldh6e0u"]
+
+[ext_resource type="Script" path="res://spirit/ability/ability.gd" id="1_dph00"]
+[ext_resource type="Texture2D" uid="uid://dr21kaocvy8at" path="res://assets/special/fire_bolt.png" id="2_tpqdi"]
+[ext_resource type="Texture2D" uid="uid://b34vdkt61repd" path="res://assets/progress_bar_normal.png" id="3_1hrcl"]
+
+[node name="Ability" type="Node2D"]
+script = ExtResource("1_dph00")
+
+[node name="AbilityChargeBG" type="ColorRect" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_right = 128.0
+offset_bottom = 160.0
+grow_horizontal = 2
+color = Color(0.552956, 0.552956, 0.552956, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="AbilitySprite" type="Sprite2D" parent="."]
+position = Vector2(64, 64)
+texture = ExtResource("2_tpqdi")
+
+[node name="AbilityChargeProgressBar" type="TextureProgressBar" parent="."]
+clip_contents = true
+offset_top = 128.0
+offset_right = 512.0
+offset_bottom = 192.0
+scale = Vector2(0.25, 0.5)
+value = 100.0
+texture_progress = ExtResource("3_1hrcl")
+
+[node name="DividerContainer" type="CenterContainer" parent="."]
+offset_left = 56.0
+offset_top = 128.0
+offset_right = 72.0
+offset_bottom = 160.0
+metadata/_edit_use_anchors_ = true
+
+[node name="DividerRichTextLabel" type="RichTextLabel" parent="DividerContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 20
+text = "/"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="CurrentChargeContainer" type="HBoxContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_top = 128.0
+offset_right = 56.0
+offset_bottom = 160.0
+grow_horizontal = 0
+alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="CurrentChargeCenterContainer" type="CenterContainer" parent="CurrentChargeContainer"]
+layout_mode = 2
+
+[node name="CurrentChargeRichTextLabel" type="RichTextLabel" parent="CurrentChargeContainer/CurrentChargeCenterContainer"]
+layout_mode = 2
+theme_override_constants/shadow_outline_size = 0
+theme_override_font_sizes/normal_font_size = 23
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="MaxChargeContainer" type="HBoxContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 72.0
+offset_top = 128.0
+offset_right = 128.0
+offset_bottom = 160.0
+grow_horizontal = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="MaxChargeCenterContainer" type="CenterContainer" parent="MaxChargeContainer"]
+layout_mode = 2
+
+[node name="MaxChargeContainerRichTextLabel" type="RichTextLabel" parent="MaxChargeContainer/MaxChargeCenterContainer"]
+layout_mode = 2
+theme_override_constants/shadow_outline_size = 0
+theme_override_font_sizes/normal_font_size = 23
+fit_content = true
+scroll_active = false
+autowrap_mode = 0

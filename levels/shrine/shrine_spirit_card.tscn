@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwxlcaoq8wenr"]
+
+[ext_resource type="Texture2D" uid="uid://bx85qdyhdasx" path="res://assets/shrine/spirit_card_dragon.png" id="1_76oxm"]
+[ext_resource type="Script" path="res://levels/shrine/shrine_spirit_card.gd" id="1_oup4h"]
+
+[node name="ShrineSpiritCard" type="Node2D"]
+script = ExtResource("1_oup4h")
+
+[node name="CardBG" type="ColorRect" parent="."]
+clip_contents = true
+offset_right = 256.0
+offset_bottom = 384.0
+color = Color(0.956614, 0.920802, 0.867713, 1)
+
+[node name="SpiritSprite2D" type="Sprite2D" parent="CardBG"]
+position = Vector2(48, 236.343)
+scale = Vector2(0.920534, 0.920534)
+texture = ExtResource("1_76oxm")
+flip_h = true
+
+[node name="LabelBG" type="ColorRect" parent="CardBG"]
+layout_mode = 0
+offset_top = 320.0
+offset_right = 256.0
+offset_bottom = 384.0
+color = Color(0.205117, 0.205117, 0.205117, 1)
+
+[node name="SpiritNameLabel" type="RichTextLabel" parent="CardBG/LabelBG"]
+layout_mode = 0
+offset_top = 18.0
+offset_right = 256.0
+offset_bottom = 42.0
+bbcode_enabled = true
+text = "[center]Dragon[/center]"
+
+[node name="Node2D" type="Node2D" parent="."]

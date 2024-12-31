@@ -1,0 +1,33 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="SpiritGuardians"
+run/main_scene="res://main.tscn"
+config/features=PackedStringArray("4.3", "Mobile")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Util="*res://util.gd"
+Main="*res://main.gd"
+GameSignals="*res://game_signals.gd"
+Enum="*res://enum.gd"
+GameSettings="*res://game_settings.gd"
+
+[display]
+
+window/size/viewport_width=2560
+window/size/viewport_height=1440
+
+[rendering]
+
+renderer/rendering_method="mobile"
