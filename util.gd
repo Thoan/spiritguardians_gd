@@ -5,34 +5,34 @@ const uuid_util = preload('res://uuid.gd')
 func hello() -> void:
 	print("hello, world")
 
-func any_spirit() -> Dictionary:
+func get_any_spirit() -> Dictionary:
 	var spirit = {
-		"name": any_name(),
-		"description": any_description(),
-		"attack": any_attack(),
-		"animal": any_animal(),
-		"element": any_element(),
-		"abilities": any_abilities(3),
+		"name": get_any_name(),
+		"description": get_any_description(),
+		"attack": get_any_attack(),
+		"animal": get_any_animal(),
+		"element": get_any_element(),
+		"abilities": get_any_abilities(3),
 		"image": null,
 		"id": uuid_util.v4()
 	}
 	return spirit
 
-func any_attack_speed() -> float:
+func get_any_attack_speed() -> float:
 	var base_attack_speed = 1.0
 	var random_offset = randf_range(-0.5, 0.5)
 	var attack_speed = base_attack_speed + random_offset
 	return attack_speed
 
-func any_animal() -> String:
+func get_any_animal() -> String:
 	var spirit_animal = Enum.Animal.keys().pick_random()
 	return spirit_animal
 
-func any_element() -> String:
+func get_any_element() -> String:
 	var spirit_element = Enum.Element.keys().pick_random()
 	return spirit_element
 
-func any_ability() -> Dictionary:
+func get_any_ability() -> Dictionary:
 	var max_charge = randi_range(3, 7)
 	var starting_charge = randi_range(0, max_charge)
 	var ability = {
@@ -44,16 +44,16 @@ func any_ability() -> Dictionary:
 	}
 	return ability
 
-func any_abilities(number_of_abilities: int) -> Array:
+func get_any_abilities(number_of_abilities: int) -> Array:
 	var abilities = []
 	for i in range(number_of_abilities):
-		var ability = any_ability()
+		var ability = get_any_ability()
 		abilities.append(ability)
 	
 	return abilities
 
-func any_attack() -> Dictionary:
-	var attack_speed = any_attack_speed()
+func get_any_attack() -> Dictionary:
+	var attack_speed = get_any_attack_speed()
 	var attack = {
 		"damage": randi_range(4, 6) + int(3/attack_speed),
 		"attack_speed": attack_speed,
@@ -62,13 +62,19 @@ func any_attack() -> Dictionary:
 	}
 	return attack
 
-func any_name() -> String:
+func get_any_name() -> String:
 	var spirit_first_name = GameSettings.SpiritNameFlavor.pick_random()
 	var spirit_last_name = GameSettings.SpiritNameFlavor.pick_random()
 	var spirit_name = spirit_first_name + " " + spirit_last_name
 	return spirit_name
 
-func any_description() -> String:
+func get_any_description() -> String:
 	var description = GameSettings.DescriptionFlavor.pick_random()
 	return description
 
+# Called to get ability center container and configure it with:
+func get_a_center_container(min_x: int, min_y: int = 0) -> CenterContainer:
+	var center_container = CenterContainer.new()
+	center_container.custom_minimum_size = Vector2(min_x, min_y)
+	center_container.layout_mode = 2
+	return center_container

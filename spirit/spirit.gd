@@ -4,7 +4,7 @@ extends Node2D
 @onready var ability_hbox_container = $AbilityHBoxContainer
 
 var in_battle = true
-var spirit_data = Util.any_spirit()
+var spirit_data = Util.get_any_spirit()
 var spirit_id = spirit_data["id"]
 var attack_cooldown_accumulator = 0.0
 
