@@ -1,11 +1,27 @@
 [gd_scene load_steps=3 format=3 uid="uid://b62mscdt7krnw"]
 
 [ext_resource type="Script" path="res://_sandbox/sandbox.gd" id="1_fw68r"]
-[ext_resource type="PackedScene" uid="uid://dkl5itewb1xur" path="res://_sandbox/sandbox_child.tscn" id="2_ox0v4"]
+[ext_resource type="PackedScene" uid="uid://bwxlcaoq8wenr" path="res://levels/shrine/shrine_spirit_card.tscn" id="2_mnh0e"]
 
 [node name="Sandbox" type="Node2D"]
 script = ExtResource("1_fw68r")
 
-[node name="SandboxChild" parent="." instance=ExtResource("2_ox0v4")]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(2560, 1440)
+offset_right = 40.0
+offset_bottom = 40.0
+alignment = 1
 
-[node name="SandboxChild2" parent="." instance=ExtResource("2_ox0v4")]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1920, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(256, 384)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="ShrineSpiritCard" parent="VBoxContainer/HBoxContainer/CenterContainer/Control" instance=ExtResource("2_mnh0e")]

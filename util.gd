@@ -18,6 +18,14 @@ func get_any_spirit() -> Dictionary:
 	}
 	return spirit
 
+func get_any_spirits(count: int) -> Array:
+	var spirits = []
+	for i in range(count):
+		var spirit = get_any_spirit()
+		spirits.append(spirit)
+	
+	return spirits
+
 func get_any_attack_speed() -> float:
 	var base_attack_speed = 1.0
 	var random_offset = randf_range(-0.5, 0.5)

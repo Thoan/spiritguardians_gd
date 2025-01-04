@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 class_name ShrineSpiritCard
 
 @onready var spirit_name_label = $CardBG/LabelBG/SpiritNameLabel
@@ -7,7 +7,6 @@ var spirit_data # Extends Resource
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("ShrineSpiritCard ready")
 	pass # Replace with function body.
 
 

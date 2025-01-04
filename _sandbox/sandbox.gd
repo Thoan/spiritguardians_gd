@@ -11,7 +11,7 @@ func _ready() -> void:
 	GameSignals.sandbox_triggered.emit(self)
 	print(uuid_util.v4())
 
-	_test_abilities()
+	# _test_abilities()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
