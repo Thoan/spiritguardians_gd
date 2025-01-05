@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://8g8mpldh6e0u"]
 
 [ext_resource type="Script" path="res://spirit/ability/ability.gd" id="1_dph00"]
-[ext_resource type="Texture2D" uid="uid://dr21kaocvy8at" path="res://assets/special/fire_bolt.png" id="2_tpqdi"]
+[ext_resource type="Texture2D" uid="uid://cjb7prqi71o0g" path="res://assets/special/fire_bolt.png" id="2_tpqdi"]
 [ext_resource type="Texture2D" uid="uid://b34vdkt61repd" path="res://assets/progress_bar_normal.png" id="3_1hrcl"]
 
 [node name="Ability" type="Node2D"]

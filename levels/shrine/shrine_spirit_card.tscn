@@ -1,29 +1,39 @@
 [gd_scene load_steps=3 format=3 uid="uid://bwxlcaoq8wenr"]
 
-[ext_resource type="Texture2D" uid="uid://bx85qdyhdasx" path="res://assets/shrine/spirit_card_dragon.png" id="1_76oxm"]
 [ext_resource type="Script" path="res://levels/shrine/shrine_spirit_card.gd" id="1_oup4h"]
+[ext_resource type="Texture2D" uid="uid://8ni72bb6kvye" path="res://assets/shrine/shrine_spirit_card.png" id="2_4wpp6"]
 
 [node name="ShrineSpiritCard" type="ColorRect"]
 clip_contents = true
-custom_minimum_size = Vector2(256, 384)
+custom_minimum_size = Vector2(512, 384)
+offset_right = 512.0
+offset_bottom = 384.0
 script = ExtResource("1_oup4h")
 
 [node name="SpiritSprite2D" type="Sprite2D" parent="."]
-position = Vector2(64, 256)
-texture = ExtResource("1_76oxm")
-flip_h = true
+position = Vector2(256, 263.134)
+scale = Vector2(0.558761, 0.558761)
+texture = ExtResource("2_4wpp6")
 
-[node name="LabelBG" type="ColorRect" parent="."]
-layout_mode = 0
-offset_top = 320.0
-offset_right = 256.0
-offset_bottom = 384.0
-color = Color(0.205117, 0.205117, 0.205117, 1)
+[node name="SpiritNameButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="SpiritNameLabel" type="RichTextLabel" parent="LabelBG"]
-layout_mode = 0
-offset_top = 18.0
-offset_right = 256.0
-offset_bottom = 42.0
+[node name="SpiritNameLabel" type="RichTextLabel" parent="SpiritNameButton"]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 168.0
+offset_bottom = -168.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 bbcode_enabled = true
-text = "[center]Dragon[/center]"
+scroll_active = false
+autowrap_mode = 0

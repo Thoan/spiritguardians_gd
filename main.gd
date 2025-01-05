@@ -13,3 +13,9 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+# Called to switch scenes by removing the current scene and adding the new scene
+func switch_scene(new_scene: PackedScene) -> void:
+	world.remove_child(world.get_child(0))
+	world.add_child(new_scene.instantiate())

@@ -1,7 +1,7 @@
 extends Node
 
 
-enum Animal {
+enum Type {
 	BEAR,
 	WOLF,
 	FOX,

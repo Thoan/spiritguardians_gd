@@ -5,17 +5,17 @@ const uuid_util = preload('res://uuid.gd')
 func hello() -> void:
 	print("hello, world")
 
-func get_any_spirit() -> Dictionary:
-	var spirit = {
-		"name": get_any_name(),
-		"description": get_any_description(),
-		"attack": get_any_attack(),
-		"animal": get_any_animal(),
-		"element": get_any_element(),
-		"abilities": get_any_abilities(3),
-		"image": null,
-		"id": uuid_util.v4()
-	}
+func get_any_spirit() -> Spirit:
+	var spirit: Spirit = Spirit.new()
+	spirit.name = get_any_name()
+	spirit.description = get_any_description()
+	spirit.attack = get_any_attack()
+	spirit.type = get_any_spirit_type()
+	spirit.element = get_any_element()
+	spirit.specials = get_any_spirit_specials(3)
+	spirit.image = null
+	spirit.id = uuid_util.v4()
+
 	return spirit
 
 func get_any_spirits(count: int) -> Array:
@@ -32,15 +32,15 @@ func get_any_attack_speed() -> float:
 	var attack_speed = base_attack_speed + random_offset
 	return attack_speed
 
-func get_any_animal() -> String:
-	var spirit_animal = Enum.Animal.keys().pick_random()
+func get_any_spirit_type() -> String:
+	var spirit_animal = Enum.Type.keys().pick_random()
 	return spirit_animal
 
 func get_any_element() -> String:
 	var spirit_element = Enum.Element.keys().pick_random()
 	return spirit_element
 
-func get_any_ability() -> Dictionary:
+func get_any_spirit_special() -> Dictionary:
 	var max_charge = randi_range(3, 7)
 	var starting_charge = randi_range(0, max_charge)
 	var ability = {
@@ -52,22 +52,21 @@ func get_any_ability() -> Dictionary:
 	}
 	return ability
 
-func get_any_abilities(number_of_abilities: int) -> Array:
-	var abilities = []
+func get_any_spirit_specials(number_of_abilities: int) -> Array[SpiritSpecial]:
+	var abilities: Array[SpiritSpecial] = []
 	for i in range(number_of_abilities):
-		var ability = get_any_ability()
+		var ability = get_any_spirit_special()
 		abilities.append(ability)
 	
 	return abilities
 
-func get_any_attack() -> Dictionary:
+func get_any_attack() -> SpiritAttack:
 	var attack_speed = get_any_attack_speed()
-	var attack = {
-		"damage": randi_range(4, 6) + int(3/attack_speed),
-		"attack_speed": attack_speed,
-		"crit_chance": randf_range(0.2, 0.7),
-		"crit_multiplier": 2.0
-	}
+	var attack = SpiritAttack.new()
+	attack.damage = randi_range(4, 6) + int(3/attack_speed)
+	attack.attack_speed = attack_speed
+	attack.crit_chance = randf_range(0.2, 0.7)
+	attack.crit_multiplier = 2.0
 	return attack
 
 func get_any_name() -> String:

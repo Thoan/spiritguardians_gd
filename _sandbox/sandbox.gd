@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 
 
 func _test_abilities() -> void:
-	var abilities = Util.get_any_abilities(3)
+	var abilities = Util.get_any_spirit_specials(3)
 	for ability_data in abilities:
 		print("Ability data: ", ability_data)
 		var ability = ability_scene.instantiate()

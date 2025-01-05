@@ -8,5 +8,8 @@ signal spirit_attacked(reference) # signal to all abilities to charge up and/or 
 signal spirit_died # signal to end battle
 signal ability_triggered(ability_trigger_configs: Dictionary) # signal to execute ability
 
+# Shrine signals
+signal shrine_spirit_selected(spirit: Spirit)
+
 # Sandbox signals
 signal sandbox_triggered(ref)
