@@ -1,5 +1,15 @@
 extends Node
 
+
+var DescriptionFlavor = [
+    "A powerful spirit that deals damage to the enemy",
+    "A wise spirit that heals and protects its allies",
+    "A cunning spirit that debuffs and controls the enemy",
+    "A versatile spirit that can adapt to any situation",
+    "A mysterious spirit that can summon and transform",
+    "A stealthy spirit that can evade and escape",
+]
+
 var SpiritSpecialAbilityDescriptionFlavor = [
 	"A powerful attack that deals damage to the enemy",
 	"A healing ability that restores health to the spirit",
