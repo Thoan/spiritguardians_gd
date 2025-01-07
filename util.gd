@@ -40,25 +40,27 @@ func get_any_element() -> String:
 	var spirit_element = Enum.Element.keys().pick_random()
 	return spirit_element
 
-func get_any_spirit_special() -> Dictionary:
+func get_any_spirit_special_ability() -> SpecialAbility:
 	var max_charge = randi_range(3, 7)
 	var starting_charge = randi_range(0, max_charge)
-	var ability = {
-		"starting_charge": randi_range(0, max_charge),
-		"current_charge": starting_charge,
-		"max_charge": max_charge,
-		"damage": max(1, randi_range(1*(max_charge - starting_charge), 10*max_charge)),
-		"texture": "res://assets/special/fire_bolt.png"
-	}
-	return ability
+	var special_ability = SpecialAbility.new()
+	special_ability.name = get_any_special_ability_name()
+	special_ability.description = get_any_description()
+	special_ability.starting_charge = starting_charge
+	special_ability.current_charge = starting_charge
+	special_ability.max_charge = max_charge
+	special_ability.damage = max(1, randi_range(1*(max_charge - starting_charge), 10*max_charge))
+	special_ability.texture = get_a_special_ability_texture()
+	special_ability.modifiers = []
+	return special_ability
 
-func get_any_spirit_specials(number_of_abilities: int) -> Array[SpiritSpecial]:
-	var abilities: Array[SpiritSpecial] = []
+func get_any_spirit_specials(number_of_abilities: int) -> Array[SpecialAbility]:
+	var special_abilities: Array[SpecialAbility] = []
 	for i in range(number_of_abilities):
-		var ability = get_any_spirit_special()
-		abilities.append(ability)
+		var special_ability = get_any_spirit_special_ability()
+		special_abilities.append(special_ability)
 	
-	return abilities
+	return special_abilities
 
 func get_any_attack() -> SpiritAttack:
 	var attack_speed = get_any_attack_speed()
@@ -75,8 +77,16 @@ func get_any_name() -> String:
 	var spirit_name = spirit_first_name + " " + spirit_last_name
 	return spirit_name
 
+func get_any_special_ability_name() -> String:
+	var special_name = GameSettings.SpiritSpecialAbilityNameFlavor.pick_random()
+	return special_name
+
 func get_any_description() -> String:
 	var description = GameSettings.DescriptionFlavor.pick_random()
+	return description
+
+func get_any_special_ability_description() -> String:
+	var description = GameSettings.SpiritSpecialAbilityDescriptionFlavor.pick_random()
 	return description
 
 # Called to get ability center container and configure it with:
@@ -85,3 +95,8 @@ func get_a_center_container(min_x: int, min_y: int = 0) -> CenterContainer:
 	center_container.custom_minimum_size = Vector2(min_x, min_y)
 	center_container.layout_mode = 2
 	return center_container
+
+func get_a_special_ability_texture() -> Texture:
+	var texture_path: String = GameSettings.SpiritSpecialAbilityTexturePath.pick_random()
+	var texture = load(texture_path)
+	return texture

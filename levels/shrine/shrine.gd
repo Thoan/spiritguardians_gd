@@ -12,7 +12,6 @@ var spirit_cards: Array = []
 func _ready() -> void:
 	for i in range(SPIRIT_CHOICE_COUNT):
 		var spirit_data: Spirit = Util.get_any_spirit()
-		print(spirit_data.type)
 		spirit_choices.append(spirit_data)
 	render_spirit_choices()
 
@@ -27,3 +26,12 @@ func render_spirit_choices() -> void:
 		var spirit_card = spirit_card_scene.instantiate().with_data(spirit_data)
 		spirit_cards.append(spirit_card)
 		hbox_container.add_child(spirit_card)
+
+# Called when a spirit is selected
+# func _on_spirit_selected(spirit_data: Spirit) -> void:
+# 	print("Spirit selected: " + spirit_data.type)
+# 	print("- Name: " + spirit_data.name)
+# 	for spirit_card in spirit_cards:
+# 		if spirit_card.spirit_data == spirit_data:
+# 			# spirit_card.queue_free()
+# 			pass

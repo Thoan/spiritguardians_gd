@@ -1,18 +1,17 @@
 extends Node2D
 
-@onready var ability_scene = preload("res://spirit/ability/ability.tscn")
+# @onready var old_ability_scene = preload("res://spirit/ability/ability.tscn")
+@onready var special_ability_scene = preload("res://spirit/special_ability/special_ability.tscn")
 @onready var ability_hbox_container = $AbilityHBoxContainer
 
 var in_battle = true
-var spirit_data = Util.get_any_spirit()
+var spirit_data: Spirit = Util.get_any_spirit()
 var spirit_id = spirit_data["id"]
 var attack_cooldown_accumulator = 0.0
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("Spirit card _ready")
-	print(spirit_data)
 	_init_spirit_abilities()
 
 
@@ -28,19 +27,19 @@ func _process(delta: float) -> void:
 
 # Called when spirit needs all abilities initialized
 func _init_spirit_abilities() -> void:
-	var spirit_ability_data = spirit_data["abilities"]
-	for ability_data in spirit_ability_data:
-		_init_ability(ability_data)
+	var spirit_special_ability_data = spirit_data["specials"]
+	for special_ability_data in spirit_special_ability_data:
+		_init_ability(special_ability_data)
 
 
 # Called when spirit needs to initialize an ability
-func _init_ability(ability_data: Dictionary) -> void:
-	var ability = ability_scene.instantiate()
-	ability.set_spirit_id(spirit_id)
+func _init_ability(special_ability_data: SpecialAbility) -> void:
+	var special_ability_scene_instance = special_ability_scene.instantiate()
+	special_ability_scene_instance.set_spirit_id(spirit_id)
 	var ability_center_container = _get_ability_center_container()
-	ability_center_container.add_child(ability)
+	ability_center_container.add_child(special_ability_scene_instance)
 	ability_hbox_container.add_child(ability_center_container)
-	ability.update_ability_data(ability_data)
+	special_ability_scene_instance.update_ability_data(special_ability_data)
 
 
 # Called to get ability center container and configure it with:

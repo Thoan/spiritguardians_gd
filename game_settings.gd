@@ -14,6 +14,19 @@ var DescriptionFlavor = [
 	"A strong and resilient spirit",
 ]
 
+var SpiritSpecialAbilityDescriptionFlavor = [
+	"A powerful attack that deals damage to the enemy",
+	"A healing ability that restores health to the spirit",
+	"A protective ability that shields the spirit from harm",
+	"A buffing ability that enhances the spirit's stats",
+	"A debuffing ability that weakens the enemy",
+	"A crowd control ability that stuns or slows the enemy",
+	"A summoning ability that calls forth a powerful ally",
+	"A transformation ability that changes the spirit's form",
+	"A teleportation ability that moves the spirit to safety",
+	"A stealth ability that makes the spirit invisible",
+]
+
 var SpiritNameFlavor = [
 	"Belmont",
 	"Vlad",
@@ -65,6 +78,35 @@ var SpiritNameFlavor = [
 	"Antoni",
 	"Bobby",
 	"Jermemiah",
+]
+
+var SpiritSpecialAbilityNameFlavor = [
+	"Fire Bolt",
+	"Water Blast",
+	"Earthquake",
+	"Wind Slash",
+	"Thunder Strike",
+	"Shadow Ball",
+	"Light Beam",
+	"Poison Sting",
+	"Dragon Claw",
+	"Psychic Wave",
+	"Steel Blade",
+	"Ghost Touch",
+	"Dark Pulse",
+	"Toucan Slam",
+	"Monkey Flip",
+	"Elephant Charge",
+	"Rhino Horn",
+	"Snake Bite",
+	"Scorpion Sting",
+]
+
+var SpiritSpecialAbilityTexturePath = [
+	"res://assets/special/fire_bolt.png",
+	"res://assets/special/frost_bolt.png",
+	"res://assets/special/boulder.png",
+	"res://assets/special/entangle.png",
 ]
 
 var CoolDownEpsilon = 0.01

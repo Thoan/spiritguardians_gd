@@ -50,7 +50,7 @@ func _update_charge_labels() -> void:
 
 
 # Sets all charge values
-func _set_charge_values(ability_data: Dictionary) -> void:
+func _set_charge_values(ability_data: SpecialAbility) -> void:
 	self.starting_charge = ability_data["starting_charge"]
 	self.current_charge = ability_data["current_charge"]
 	self.max_charge = ability_data["max_charge"]
@@ -59,7 +59,7 @@ func _set_charge_values(ability_data: Dictionary) -> void:
 
 
 # Called by parent to update ability data
-func update_ability_data(ability_data: Dictionary) -> void:
+func update_ability_data(ability_data: SpecialAbility) -> void:
 	_set_charge_values(ability_data)
 	_update_sprite()
 	_update_ability_texture(ability_data["texture"])
@@ -82,8 +82,8 @@ func _update_sprite() -> void:
 
 
 # Sets ability texture
-func _update_ability_texture(new_texture: String) -> void:
-	ability_sprite.texture = load(new_texture)
+func _update_ability_texture(new_texture: Texture) -> void:
+	ability_sprite.texture = new_texture
 
 
 # Called by parent spirit to set id
