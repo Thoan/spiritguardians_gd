@@ -18,7 +18,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	attack_cooldown_accumulator += delta
-	if attack_cooldown_accumulator >= (1.0 / spirit_data["attack"]["attack_speed"]) - GameSettings.CoolDownEpsilon:
+	if attack_cooldown_accumulator >= (1.0 / spirit_data["attack"]["attack_speed"]) - GameConsts.CoolDownEpsilon:
 		# print("Spirit attacked for ", spirit_data["attack"]["damage"], " damage!")
 		# print("attack_delta_accumulator: ", attack_cooldown_accumulator)
 		attack_cooldown_accumulator = 0.0

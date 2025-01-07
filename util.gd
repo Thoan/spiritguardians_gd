@@ -72,21 +72,21 @@ func get_any_attack() -> SpiritAttack:
 	return attack
 
 func get_any_name() -> String:
-	var spirit_first_name = GameSettings.SpiritNameFlavor.pick_random()
-	var spirit_last_name = GameSettings.SpiritNameFlavor.pick_random()
+	var spirit_first_name = GameConsts.SpiritNameFlavor.pick_random()
+	var spirit_last_name = GameConsts.SpiritNameFlavor.pick_random()
 	var spirit_name = spirit_first_name + " " + spirit_last_name
 	return spirit_name
 
 func get_any_special_ability_name() -> String:
-	var special_name = GameSettings.SpiritSpecialAbilityNameFlavor.pick_random()
+	var special_name = GameConsts.SpiritSpecialAbilityNameFlavor.pick_random()
 	return special_name
 
 func get_any_description() -> String:
-	var description = GameSettings.DescriptionFlavor.pick_random()
+	var description = GameConsts.DescriptionFlavor.pick_random()
 	return description
 
 func get_any_special_ability_description() -> String:
-	var description = GameSettings.SpiritSpecialAbilityDescriptionFlavor.pick_random()
+	var description = GameConsts.SpiritSpecialAbilityDescriptionFlavor.pick_random()
 	return description
 
 # Called to get ability center container and configure it with:
@@ -97,6 +97,6 @@ func get_a_center_container(min_x: int, min_y: int = 0) -> CenterContainer:
 	return center_container
 
 func get_a_special_ability_texture() -> Texture:
-	var texture_path: String = GameSettings.SpiritSpecialAbilityTexturePath.pick_random()
+	var texture_path: String = GameConsts.SpiritSpecialAbilityTexturePath.pick_random()
 	var texture = load(texture_path)
 	return texture

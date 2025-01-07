@@ -22,6 +22,7 @@ GameSignals="*res://game_signals.gd"
 Enum="*res://enum.gd"
 GameSettings="*res://game_settings.gd"
 GameData="*res://game_data.gd"
+GameConsts="*res://game_consts.gd"
 
 [display]
 
